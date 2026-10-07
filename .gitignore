@@ -9,3 +9,6 @@ Thumbs.db
 # Local environment files
 .env*
 !.env.example
+# Generated auto-import declarations
+/src/types/auto-imports.d.ts
+/src/types/components.d.ts
