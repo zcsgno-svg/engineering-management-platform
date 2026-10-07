@@ -1,168 +1,62 @@
-# 深合工程管理平台
+# Engineering Management Platform
 
-## 项目简介
-深合工程管理平台是一套面向物业工程管理的Web系统，实现设备资产、工单、巡检、能耗、安全等业务的数字化管理，提升工程管理效率、降低运维成本、强化安全管控。
+A Vue 3 and Vite frontend for property engineering operations. The current interface includes a dashboard, work order views, and login flow, with mock data available for local development.
 
-## 技术栈
-- **框架**: Vue 3 + Vite
-- **UI组件库**: Element Plus
-- **图表库**: ECharts
-- **状态管理**: Pinia
-- **路由**: Vue Router
-- **请求库**: Axios
-- **样式**: SCSS
-- **构建工具**: Vite
+## Stack
 
-## 功能模块
+- Vue 3 and Vue Router
+- Vite
+- Pinia
+- Element Plus
+- ECharts
+- Axios
+- SCSS
 
-### 1. 首页驾驶舱
-- 项目切换
-- 数据卡片展示（工单、设备、告警）
-- 工单趋势图（折线图）
-- 能耗趋势图（柱状/折线）
-- 设备故障占比（饼图）
+## Requirements
 
-### 2. 设备资产管理
-- 设备列表（分页+筛选）
-- 设备详情页
-- 左侧树结构导航
-- 维保记录管理
-- 文件上传/下载
+- Node.js 18 or later
+- npm
 
-### 3. 工单管理
-- 工单列表（分页/筛选）
-- 工单状态流转
-- 新建工单
-- 派单功能
-- 图片上传
-- 超时工单标红
+## Getting started
 
-### 4. 巡检管理
-- 巡检计划配置
-- 巡检任务列表
-- 巡检记录填写
-- 异常标记
-- 一键转工单
-
-### 5. 维保管理
-- 维保计划（日/月/年）
-- 维保记录
-- 维保提醒
-
-### 6. 特种设备管理
-- 特种设备台账
-- 年检到期提醒
-- 证件管理
-
-### 7. 能耗管理
-- 电/水/气数据展示
-- 时间维度筛选
-- 趋势图和对比图
-
-### 8. 报表中心
-- 工单报表
-- 能耗报表
-- 设备报表
-- Excel导出
-
-### 9. 系统管理
-- 用户管理
-- 角色权限管理
-- 菜单权限控制
-
-## 开始使用
-
-### 安装依赖
 ```bash
 npm install
-```
-
-### 启动开发服务器
-```bash
+cp .env.example .env.development
 npm run dev
 ```
 
-### 构建生产版本
+The development server listens on port `3000`. API requests use `/api` and are proxied to `http://localhost:8080` by the Vite development server. Set `VITE_APP_MOCK=true` to use the included mock responses.
+
+## Build
+
 ```bash
 npm run build
-```
-
-### 预览生产版本
-```bash
 npm run preview
 ```
 
-## 项目结构
+The production build is written to `dist/`.
 
-```
+## Configuration
+
+Copy `.env.example` to `.env.development` for local development. Keep environment-specific values in local env files; they are ignored by Git. Do not commit credentials or private service URLs.
+
+## Project layout
+
+```text
 src/
-├── assets/          # 静态资源
-│   └── styles/      # 全局样式
-├── components/      # 公共组件
-│   ├── layout/      # 布局组件
-│   ├── dashboard/   # 首页组件
-│   ├── workorder/   # 工单组件
-│   └── ...
-├── views/           # 页面组件
-├── stores/          # Pinia状态管理
-├── api/             # API接口
-├── utils/           # 工具函数
-└── router/          # 路由配置
+├── api/         # API clients
+├── assets/      # Global styles and assets
+├── components/  # Reusable interface components
+├── router/      # Route definitions
+├── stores/      # Pinia stores
+├── utils/       # Shared utilities and mock responses
+└── views/       # Route-level pages
 ```
 
-## 开发规范
+## Project status
 
-### 命名规范
-- 组件：PascalCase（如 `WorkOrderTable`）
-- 文件：kebab-case（如 `work-order-table`）
-- API：camelCase（如 `getWorkOrderList`）
+This repository contains the frontend application. A compatible backend is required for live API data; mock mode is intended for local preview.
 
-### 组件规范
-- 组件文件放在 `src/components` 对应目录
-- 页面文件放在 `src/views` 对应目录
-- 使用 `<script setup>` 语法糖
+## License
 
-### 样式规范
-- 使用 SCSS 预处理器
-- 组件样式使用 `scoped`
-- 全局样式放在 `src/assets/styles`
-
-### API规范
-- 接口统一管理在 `src/api`
-- 使用 `request` 工具发送请求
-- 支持 Mock 数据开发
-
-## 特性
-
-### 权限控制
-- 页面级权限
-- 按角色控制按钮显示
-- 动态路由
-
-### 响应式设计
-- PC端优先（1920×1080适配）
-- 完美支持移动端
-- 自适应布局
-
-### 性能优化
-- 路由懒加载
-- 组件异步加载
-- 代码分割
-
-### 开发体验
-- TypeScript支持
-- ESLint代码规范
-- 热更新
-- 代码提示
-
-## 浏览器支持
-- Chrome (推荐)
-- Firefox
-- Safari
-- Edge
-
-## 作者
-张宸硕
-
-## 许可证
-MIT License
+MIT. See [LICENSE](LICENSE).
